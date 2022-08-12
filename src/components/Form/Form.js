@@ -112,7 +112,6 @@ const Form = () => {
           variant="outlined"
           label="Descrição"
           multiline
-          rows={2}
           maxRows={Infinity}
           fullWidth
           value={postData.description}
