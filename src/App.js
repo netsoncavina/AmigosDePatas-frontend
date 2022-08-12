@@ -5,7 +5,8 @@ import { getPosts } from "./actions/posts";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import useStyles from "./styles";
-import image from "./images/memories.png";
+import dogImage from "./images/dog.png";
+import catImage from "./images/cat.png";
 
 const App = () => {
   const classes = useStyles();
@@ -19,11 +20,17 @@ const App = () => {
     <Container maxwidth="lg">
       <AppBar className={classes.AppBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">
-          Memories
           <img
             className={classes.image}
-            src={image}
-            alt="memories"
+            src={dogImage}
+            alt="dog image"
+            height="60"
+          />
+          Adote
+          <img
+            className={classes.image}
+            src={catImage}
+            alt="cat image"
             height="60"
           />
         </Typography>
