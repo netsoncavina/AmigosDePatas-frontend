@@ -5,7 +5,7 @@ import FileBase from "react-file-base64";
 import useStyles from "./styles";
 import { createPost, updatePost } from "../../actions/posts";
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator: "",
     name: "",
@@ -15,12 +15,17 @@ const Form = () => {
     tags: "",
     selectedFile: "",
   });
-  const [currentId, setCurrentId] = useState();
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((post) => post._id === currentId) : null
+  );
+
+  // const [currentId, setCurrentId] = useState();
   const classes = useStyles();
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   if (post) setPostData(post);
-  // }, [post]);
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
 
   const clear = () => {
     setCurrentId(0);
@@ -39,13 +44,12 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (currentId === 0) {
-    dispatch(createPost(postData));
+    if (currentId) {
+      dispatch(updatePost(currentId, postData));
+    } else {
+      dispatch(createPost(postData));
+    }
     clear();
-    // } else {
-    //   dispatch(updatePost(currentId, postData));
-    //   clear();
-    // }
   };
   return (
     <Paper className={classes.paper}>
@@ -56,7 +60,7 @@ const Form = () => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {/* {currentId ? `Editing "${post.title}"` : "Creating a Memory"} */}
+          {currentId ? `Editando post` : "Criando Post"}
         </Typography>
         <TextField
           name="creator"
