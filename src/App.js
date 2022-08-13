@@ -21,19 +21,9 @@ const App = () => {
     <Container maxwidth="lg">
       <AppBar className={classes.AppBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">
-          <img
-            className={classes.image}
-            src={dogImage}
-            alt="dog image"
-            height="60"
-          />
+          <img className={classes.image} src={dogImage} alt="dog" height="60" />
           Adote
-          <img
-            className={classes.image}
-            src={catImage}
-            alt="cat image"
-            height="60"
-          />
+          <img className={classes.image} src={catImage} alt="cat" height="60" />
         </Typography>
       </AppBar>
 
@@ -41,7 +31,7 @@ const App = () => {
         <Container>
           <Grid
             container
-            justify="space-between"
+            justifyContent="space-between"
             alignItems="stretch"
             spacing={3}
           >
