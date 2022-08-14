@@ -11,7 +11,7 @@ const Navbar = () => {
   const user = null;
 
   return (
-    <AppBar className={classes.AppBar} position="static" color="inherit">
+    <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
         <Typography
           component={Link}
@@ -24,39 +24,39 @@ const Navbar = () => {
           Adote
           <img className={classes.image} src={catImage} alt="cat" height="60" />
         </Typography>
-      </div>
-      <Toolbar className={classes.toolbar}>
-        {user ? (
-          <div className={classes.profile}>
-            <Avatar
-              className={classes.purple}
-              alt={user.result.name}
-              src={user.result.imageUrl}
-            >
-              {user.result.name.charAt(0)}
-            </Avatar>
-            <Typography className={classes.userName} variant="h6">
-              {user.result.name}
-            </Typography>
+        <Toolbar className={classes.toolbar}>
+          {user ? (
+            <div className={classes.profile}>
+              <Avatar
+                className={classes.purple}
+                alt={user.result.name}
+                src={user.result.imageUrl}
+              >
+                {user.result.name.charAt(0)}
+              </Avatar>
+              <Typography className={classes.userName} variant="h6">
+                {user.result.name}
+              </Typography>
+              <Button
+                variant="contained"
+                className={classes.logout}
+                color="secondary"
+              >
+                Sair
+              </Button>
+            </div>
+          ) : (
             <Button
+              component={Link}
+              to="/auth"
               variant="contained"
-              className={classes.logout}
-              color="secondary"
+              color="primary"
             >
-              Sair
+              Entrar
             </Button>
-          </div>
-        ) : (
-          <Button
-            component={Link}
-            to="/auth"
-            variant="contained"
-            color="primary"
-          >
-            Entrar
-          </Button>
-        )}
-      </Toolbar>
+          )}
+        </Toolbar>
+      </div>
     </AppBar>
   );
 };
