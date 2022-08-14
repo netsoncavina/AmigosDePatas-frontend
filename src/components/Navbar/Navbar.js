@@ -21,7 +21,7 @@ const Navbar = () => {
           align="center"
         >
           <img className={classes.image} src={dogImage} alt="dog" height="60" />
-          Adote
+          Amigos de Patas
           <img className={classes.image} src={catImage} alt="cat" height="60" />
         </Typography>
         <Toolbar className={classes.toolbar}>
