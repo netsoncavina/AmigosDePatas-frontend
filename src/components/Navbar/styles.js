@@ -5,15 +5,19 @@ export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
     margin: "30px 0",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    // display: "flex",
+    // flexDirection: "row",
+    // justifyContent: "space-between",
+    // alignItems: "center",
     padding: "10px 50px",
   },
+
   heading: {
     color: "rgba(0,183,255, 1)",
     textDecoration: "none",
+    marginRight: "auto",
+    justifyContent: "center",
+    alignItems: "center",
   },
   image: {
     marginLeft: "15px",
@@ -35,7 +39,17 @@ export default makeStyles((theme) => ({
   brandContainer: {
     display: "flex",
     alignItems: "center",
-    // justifyContent: "center",
+    justifyContent: "center",
+  },
+  [theme.breakpoints.down("sm")]: {
+    brandContainer: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    toolbar: {
+      width: "100%",
+      justifyContent: "center",
+    },
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
