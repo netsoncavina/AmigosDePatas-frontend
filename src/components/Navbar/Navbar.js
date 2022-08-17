@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, Avatar, Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import useStyles from "./styles";
 
 import dogImage from "../../images/dog.png";
@@ -8,12 +9,20 @@ import catImage from "../../images/cat.png";
 
 const Navbar = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    setUser(null);
+    history.push("/");
+  };
   useEffect(() => {
     const token = user?.token;
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, []);
+  }, [location]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
@@ -46,6 +55,7 @@ const Navbar = () => {
                 variant="contained"
                 className={classes.logout}
                 color="secondary"
+                onClick={logout}
               >
                 Sair
               </Button>
