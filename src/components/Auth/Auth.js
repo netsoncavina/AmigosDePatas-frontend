@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
-
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Input from "./Input";
@@ -20,6 +20,7 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
   const handleSubmit = (e) => {};
   const handleChange = (e) => {};
   const handleShowPassword = () => {
@@ -39,6 +40,7 @@ const Auth = () => {
 
     try {
       dispatch({ type: "AUTH", data: { result, token } });
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
