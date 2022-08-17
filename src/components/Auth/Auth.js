@@ -7,6 +7,8 @@ import {
   Typography,
   Container,
 } from "@material-ui/core";
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { useDispatch } from "react-redux";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Input from "./Input";
 import useStyles from "./styles";
@@ -15,6 +17,7 @@ const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {};
   const handleChange = (e) => {};
   const handleShowPassword = () => {
@@ -24,6 +27,23 @@ const Auth = () => {
     setIsSignUp(!isSignUp);
     setShowPassword(false);
   };
+
+  const googleSuccess = async (res) => {
+    console.log(res);
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+
+    try {
+      dispatch({ type: "AUTH", data: { result, token } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const googleFailure = (error) => {
+    console.log(error);
+    console.log("Google login failed");
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
@@ -83,7 +103,12 @@ const Auth = () => {
           >
             {isSignUp ? "Cadastrar" : "Entrar"}
           </Button>
-          <Grid container justify="flex-end">
+          <GoogleLogin
+            className={classes.googleButton}
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+          />
+          <Grid container justifyContent="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
                 {isSignUp ? "Já possui uma conta?" : "Não possui uma conta?"}
