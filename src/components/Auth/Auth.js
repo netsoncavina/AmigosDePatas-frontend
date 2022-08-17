@@ -8,6 +8,8 @@ import {
   Container,
 } from "@material-ui/core";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+
 import { useDispatch } from "react-redux";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Input from "./Input";
@@ -30,8 +32,10 @@ const Auth = () => {
 
   const googleSuccess = async (res) => {
     console.log(res);
-    const result = res?.profileObj;
-    const token = res?.tokenId;
+    // const result = res?.profileObj;
+    // const token = res?.tokenId;
+    const result = jwt_decode(res?.credential);
+    const token = res?.credential;
 
     try {
       dispatch({ type: "AUTH", data: { result, token } });
