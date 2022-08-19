@@ -7,6 +7,7 @@ import { createPost, updatePost } from "../../actions/posts";
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
+    owner: "",
     creator: "",
     name: "",
     race: "",
@@ -22,7 +23,7 @@ const Form = ({ currentId, setCurrentId }) => {
   // const [currentId, setCurrentId] = useState();
   const classes = useStyles();
   const dispatch = useDispatch();
-
+  const owner = JSON.parse(localStorage.getItem("profile"));
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
@@ -30,6 +31,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const clear = () => {
     setCurrentId(0);
     setPostData({
+      owner: "",
       creator: "",
       name: "",
       race: "",
@@ -45,12 +47,25 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatePost(currentId, postData));
+      dispatch(
+        updatePost(currentId, { ...postData, owner: owner?.result?.email })
+      );
     } else {
-      dispatch(createPost(postData));
+      dispatch(createPost({ ...postData, owner: owner?.result?.email }));
     }
     clear();
   };
+
+  if (!owner?.result?.email) {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant="h6" align="center">
+          Você precisa estar logado para postar
+        </Typography>
+      </Paper>
+    );
+  }
+
   return (
     <Paper className={classes.paper}>
       <form
