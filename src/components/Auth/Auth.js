@@ -7,7 +7,7 @@ import {
   Typography,
   Container,
 } from "@material-ui/core";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
