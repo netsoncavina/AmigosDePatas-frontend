@@ -43,7 +43,7 @@ const Navbar = () => {
           {user ? (
             <div className={classes.profile}>
               <Avatar
-                className={classes.purple}
+                className={classes.avatar}
                 alt={user?.result.name}
                 src={user?.result.picture}
               >

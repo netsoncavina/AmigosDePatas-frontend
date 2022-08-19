@@ -20,7 +20,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
   },
   image: {
-    marginLeft: "15px",
+    // marginLeft: "15px",
   },
   toolbar: {
     display: "flex",
@@ -30,7 +30,7 @@ export default makeStyles((theme) => ({
   profile: {
     display: "flex",
     justifyContent: "space-between",
-    width: "400px",
+    width: "300px",
   },
   userName: {
     display: "flex",
@@ -41,6 +41,12 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  avatar: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
+    width: "45px",
+    height: "45px",
+  },
   [theme.breakpoints.down("sm")]: {
     brandContainer: {
       display: "flex",
@@ -50,9 +56,5 @@ export default makeStyles((theme) => ({
       width: "100%",
       justifyContent: "center",
     },
-  },
-  purple: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
   },
 }));
