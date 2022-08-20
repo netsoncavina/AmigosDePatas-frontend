@@ -6,12 +6,16 @@ import useStyles from "./styles";
 import { createPost, updatePost } from "../../actions/posts";
 
 const Form = ({ currentId, setCurrentId }) => {
+  const owner = JSON.parse(localStorage.getItem("profile"));
+  const phoneNumber = owner?.result.phoneNumber || "";
+  const name = owner?.result.name || "";
   const [postData, setPostData] = useState({
     owner: "",
-    creator: "",
+    creator: name,
     name: "",
     race: "",
     age: "",
+    phoneNumber: phoneNumber,
     localization: "",
     tags: "",
     selectedFile: "",
@@ -23,7 +27,6 @@ const Form = ({ currentId, setCurrentId }) => {
   // const [currentId, setCurrentId] = useState();
   const classes = useStyles();
   const dispatch = useDispatch();
-  const owner = JSON.parse(localStorage.getItem("profile"));
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
@@ -37,6 +40,7 @@ const Form = ({ currentId, setCurrentId }) => {
       race: "",
       age: "",
       localization: "",
+      phoneNumber: "",
       description: "",
       tags: "",
       selectedFile: "",
@@ -91,7 +95,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <TextField
           name="name"
           variant="outlined"
-          label="Nome "
+          label="Nome do pet "
           size="small"
           fullWidth
           value={postData.name}
@@ -114,6 +118,17 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           value={postData.age}
           onChange={(e) => setPostData({ ...postData, age: e.target.value })}
+        />
+        <TextField
+          name="phoneNumber"
+          variant="outlined"
+          label="Contato"
+          size="small"
+          fullWidth
+          value={postData.phoneNumber}
+          onChange={(e) =>
+            setPostData({ ...postData, phoneNumber: e.target.value })
+          }
         />
         <TextField
           name="localization"

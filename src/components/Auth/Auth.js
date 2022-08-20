@@ -19,6 +19,7 @@ import { signin, signup } from "../../actions/auth";
 const initialState = {
   firstName: "",
   lastName: "",
+  phoneNumber: "",
   email: "",
   password: "",
   confirmPassword: "",
@@ -52,8 +53,6 @@ const Auth = () => {
 
   const googleSuccess = async (res) => {
     console.log(res);
-    // const result = res?.profileObj;
-    // const token = res?.tokenId;
     const result = jwt_decode(res?.credential);
     const token = res?.credential;
 
@@ -94,6 +93,11 @@ const Auth = () => {
                   label="Sobrenome"
                   handleChange={handleChange}
                   half
+                />
+                <Input
+                  name="phoneNumber"
+                  label="Telefone"
+                  handleChange={handleChange}
                 />
               </>
             )}
