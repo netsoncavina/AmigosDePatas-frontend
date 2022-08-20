@@ -14,11 +14,15 @@ const Navbar = () => {
   const history = useHistory();
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  console.log(user);
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     setUser(null);
     history.push("/");
+  };
+  const login = () => {
+    // dispatch({ type: "LOGOUT" });
+    // setUser(null);
+    history.push("/auth");
   };
   useEffect(() => {
     const token = user?.token;
@@ -75,6 +79,7 @@ const Navbar = () => {
               to="/auth"
               variant="contained"
               color="primary"
+              onClick={login}
             >
               Entrar
             </Button>
