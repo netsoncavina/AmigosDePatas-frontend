@@ -32,10 +32,6 @@ const Home = () => {
   const page = query.get("page") || 1;
   const searchQuery = query.get("search");
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
-
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       history.push(`/search?search=${search}`);
@@ -110,7 +106,7 @@ const Home = () => {
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             <Paper className={classes.pagination} elevation={6}>
-              <Paginate />
+              <Paginate page={page} />
             </Paper>
           </Grid>
         </Grid>
