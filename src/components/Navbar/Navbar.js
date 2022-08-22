@@ -76,7 +76,7 @@ const Navbar = () => {
                 </Button>
               </div>
             </>
-          ) : (
+          ) : window.location.pathname !== "/auth" ? (
             <Button
               component={Link}
               to="/auth"
@@ -109,7 +109,7 @@ const Navbar = () => {
                 </Typography>
               </div>
             </Button>
-          )}
+          ) : null}
         </Toolbar>
       </div>
     </AppBar>
