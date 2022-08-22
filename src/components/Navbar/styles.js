@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
     color: "rgba(0,183,255, 1)",
     textDecoration: "none",
     marginRight: "auto",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   image: {
@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "flex-end",
-    width: "400px",
+    width: "500px",
   },
   profile: {
     display: "flex",

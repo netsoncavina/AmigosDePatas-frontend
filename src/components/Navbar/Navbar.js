@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import useStyles from "./styles";
 
-import dogImage from "../../images/dog.png";
-import catImage from "../../images/cat.png";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import logo from "../../images/Logo.png";
 
 const Navbar = () => {
   const classes = useStyles();
@@ -44,44 +44,74 @@ const Navbar = () => {
           component={Link}
           to="/"
           className={classes.heading}
-          variant="h2"
           align="center"
         >
-          <img className={classes.image} src={dogImage} alt="dog" height="60" />
-          Amigos de Patas
-          <img className={classes.image} src={catImage} alt="cat" height="60" />
+          <img className={classes.image} src={logo} alt="logo" height={100} />
         </Typography>
         <Toolbar className={classes.toolbar}>
           {user ? (
-            <div className={classes.profile}>
-              <Avatar
-                className={classes.avatar}
-                alt={user?.result.name}
-                src={user?.result.picture}
-              >
-                {user?.result.name.charAt(0)}
-              </Avatar>
-              <Typography className={classes.userName} variant="h6">
-                {user.result.name}
-              </Typography>
-              <Button
-                variant="contained"
-                className={classes.logout}
-                color="secondary"
-                onClick={logout}
-              >
-                Sair
-              </Button>
-            </div>
+            <>
+              <div className={classes.profile}>
+                <Avatar
+                  className={classes.avatar}
+                  alt={user?.result.name}
+                  src={user?.result.picture}
+                >
+                  {user?.result.name.charAt(0)}
+                </Avatar>
+                <Typography className={classes.userName} variant="h6">
+                  {user.result.name}
+                </Typography>
+                <Button
+                  variant="contained"
+                  className={classes.logout}
+                  style={{
+                    backgroundColor: "#FF5757",
+                    borderRadius: "50px",
+                    textTransform: "none",
+                    color: "white",
+                  }}
+                  onClick={logout}
+                >
+                  Sair
+                </Button>
+              </div>
+            </>
           ) : (
             <Button
               component={Link}
               to="/auth"
               variant="contained"
-              color="primary"
               onClick={login}
+              style={{
+                backgroundColor: "#38B6FF",
+                borderRadius: "50px",
+                textTransform: "none",
+              }}
             >
-              Entrar
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "80px",
+                }}
+              >
+                <AccountCircleIcon
+                  style={{
+                    color: "white",
+                    position: "absolute",
+                    left: "0px",
+                  }}
+                  fontSize="large"
+                />
+                <Typography
+                  variant="p"
+                  style={{ color: "white", marginLeft: "30px" }}
+                >
+                  Entrar
+                </Typography>
+              </div>
             </Button>
           )}
         </Toolbar>
