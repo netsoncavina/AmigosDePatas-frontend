@@ -47,6 +47,7 @@ const Post = ({ post, setCurrentId }) => {
         className={classes.media}
         image={post.selectedFile}
         title={post.name}
+        style={{ cursor: "pointer" }}
         onClick={handleOpen}
       />
       <div className={classes.overlay}>
@@ -82,11 +83,13 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2" color="textSecondary">
           {post.race}
         </Typography>
+      </div>
+      <div className={classes.details}>
         <Typography variant="body2" color="textSecondary">
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
-      <CardContent>
+      <CardContent style={{ display: "flex", justifyContent: "center" }}>
         <Typography className={classes.title} variant="h5" gutterBottom>
           {post.name}
         </Typography>
