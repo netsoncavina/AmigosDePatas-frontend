@@ -20,8 +20,8 @@ const Navbar = () => {
     history.push("/");
   };
   const login = () => {
-    // dispatch({ type: "LOGOUT" });
-    // setUser(null);
+    dispatch({ type: "LOGOUT" });
+    setUser(null);
     history.push("/auth");
   };
   useEffect(() => {
@@ -69,7 +69,6 @@ const Navbar = () => {
                     backgroundColor: "#FF5757",
                     borderRadius: "50px",
                     textTransform: "none",
-                    color: "white",
                   }}
                   onClick={logout}
                 >
