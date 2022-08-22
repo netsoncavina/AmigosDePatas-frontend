@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import {
-  Avatar,
-  Button,
-  Paper,
-  Grid,
-  Typography,
-  Container,
-} from "@material-ui/core";
+import { Button, Paper, Grid, Typography, Container } from "@material-ui/core";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import icon from "../../images/icon.png";
 import Input from "./Input";
 import useStyles from "./styles";
 import { signin, signup } from "../../actions/auth";
@@ -69,13 +62,13 @@ const Auth = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.container}>
       <Paper className={classes.paper} elevation={3}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography variant="h5">
-          {isSignUp ? "Cadastrar" : "Entrar"}
+        <img src={icon} className={classes.icon} alt="icon" />
+        <Typography variant="h6" className={classes.title}>
+          {isSignUp
+            ? "Se cadastre para conhecer seu novo amigo de patas!"
+            : "Entre para conhecer seu novo amigo de patas!"}
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -127,19 +120,22 @@ const Auth = () => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            style={{ backgroundColor: "#242424 ", color: "#fff" }}
             className={classes.submit}
           >
             {isSignUp ? "Cadastrar" : "Entrar"}
           </Button>
-          <GoogleLogin
-            className={classes.googleButton}
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-          />
-          <Grid container justifyContent="flex-end">
+          <div className={classes.googleButton}>
+            <GoogleLogin
+              className={classes.googleButton}
+              onSuccess={googleSuccess}
+              onFailure={googleFailure}
+            />
+          </div>
+
+          <Grid container justifyContent="center">
             <Grid item>
-              <Button onClick={switchMode}>
+              <Button onClick={switchMode} style={{ textTransform: "none" }}>
                 {isSignUp ? "Já possui uma conta?" : "Não possui uma conta?"}
               </Button>
             </Grid>

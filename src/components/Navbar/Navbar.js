@@ -104,10 +104,7 @@ const Navbar = () => {
                   }}
                   fontSize="large"
                 />
-                <Typography
-                  variant="p"
-                  style={{ color: "white", marginLeft: "30px" }}
-                >
+                <Typography style={{ color: "white", marginLeft: "30px" }}>
                   Entrar
                 </Typography>
               </div>
