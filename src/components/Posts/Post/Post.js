@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   Card,
@@ -15,6 +15,7 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
 import useStyles from "./styles";
 import { deletePost, likePost } from "../../../actions/posts";
+import DetailsModal from "../../Modal/Modal";
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
@@ -36,12 +37,17 @@ const Post = ({ post, setCurrentId }) => {
     );
   };
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Card className={classes.card} elevation={10}>
       <CardMedia
         className={classes.media}
         image={post.selectedFile}
         title={post.name}
+        onClick={handleOpen}
       />
       <div className={classes.overlay}>
         <Typography variant="h6" className={classes.creator}>
@@ -111,6 +117,20 @@ const Post = ({ post, setCurrentId }) => {
           </Button>
         ) : null}
       </CardActions>
+      {open ? (
+        <DetailsModal
+          open={open}
+          handleClose={handleClose}
+          selectedFile={post.selectedFile}
+          name={post.name}
+          creator={post.creator}
+          localization={post.localization}
+          age={post.age}
+          race={post.race}
+          phoneNumber={post.phoneNumber}
+          description={post.description}
+        />
+      ) : null}
     </Card>
   );
 };
