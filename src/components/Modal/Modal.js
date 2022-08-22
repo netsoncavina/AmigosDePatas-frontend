@@ -52,6 +52,9 @@ const DetailsModal = ({
               ) : null}
             </Typography>
           </div>
+          <Typography variant="body2" gutterBottom>
+            {localization}
+          </Typography>
           <Typography variant="body1" gutterBottom>
             {description}
           </Typography>

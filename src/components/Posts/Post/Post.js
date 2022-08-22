@@ -11,7 +11,7 @@ import {
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 import DeleteIcon from "@material-ui/icons/Delete";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import EditIcon from "@material-ui/icons/Edit";
 import moment from "moment";
 import useStyles from "./styles";
 import { deletePost, likePost } from "../../../actions/posts";
@@ -72,7 +72,7 @@ const Post = ({ post, setCurrentId }) => {
               setCurrentId(post._id);
             }}
           >
-            <MoreHorizIcon fontSize="medium" />
+            <EditIcon fontSize="medium" />
           </Button>
         </div>
       ) : null}
@@ -116,7 +116,7 @@ const Post = ({ post, setCurrentId }) => {
             }}
           >
             <DeleteIcon fontSize="small" />
-            Delete
+            Excluir
           </Button>
         ) : null}
       </CardActions>

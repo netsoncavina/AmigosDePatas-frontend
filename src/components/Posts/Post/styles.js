@@ -37,7 +37,7 @@ export default makeStyles({
   overlay3: {
     position: "absolute",
     top: "20px",
-    right: "20px",
+    right: "7px",
     color: "white",
   },
   grid: {
