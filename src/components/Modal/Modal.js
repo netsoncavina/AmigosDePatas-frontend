@@ -50,14 +50,19 @@ const DetailsModal = ({
               </div>
             </Typography>
           </div>
-          <Typography variant="body2" gutterBottom>
-            {phoneNumber ? (
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <Phone fontSize="small" />
-                {phoneNumber}
-              </div>
-            ) : null}
-          </Typography>
+          <div className={classes.info}>
+            <Typography variant="body2" gutterBottom>
+              {age} {age > 1 ? "anos" : "ano"}
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              {phoneNumber ? (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Phone fontSize="small" />
+                  {phoneNumber}
+                </div>
+              ) : null}
+            </Typography>
+          </div>
 
           <Typography
             className={classes.description}
