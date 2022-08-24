@@ -9,7 +9,7 @@ import {
   Button,
   Modal,
 } from "@material-ui/core";
-import { Phone } from "@material-ui/icons";
+import { Phone, LocationOn } from "@material-ui/icons";
 import useStyles from "./styles";
 
 const DetailsModal = ({
@@ -44,18 +44,26 @@ const DetailsModal = ({
               {name}
             </Typography>
             <Typography variant="body2" gutterBottom>
-              {phoneNumber ? (
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <Phone fontSize="small" />
-                  {phoneNumber}
-                </div>
-              ) : null}
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <LocationOn fontSize="small" />
+                {localization}
+              </div>
             </Typography>
           </div>
           <Typography variant="body2" gutterBottom>
-            {localization}
+            {phoneNumber ? (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <Phone fontSize="small" />
+                {phoneNumber}
+              </div>
+            ) : null}
           </Typography>
-          <Typography variant="body1" gutterBottom>
+
+          <Typography
+            className={classes.description}
+            variant="body1"
+            gutterBottom
+          >
             {description}
           </Typography>
         </CardContent>

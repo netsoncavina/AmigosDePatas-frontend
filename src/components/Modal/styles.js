@@ -25,4 +25,7 @@ export default makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  description: {
+    marginTop: "1rem",
+  },
 });
