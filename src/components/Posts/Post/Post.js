@@ -76,7 +76,23 @@ const Post = ({ post, setCurrentId }) => {
           </Button>
         </div>
       ) : null}
-      <div className={classes.details}>
+      {user?.result?._id === post.owner ||
+      user?.result?.email === post.owner ||
+      user?.result?.sub === post.owner ? (
+        <div className={classes.overlay4}>
+          <Button
+            style={{ color: "white" }}
+            size="small"
+            onClick={() => {
+              dispatch(deletePost(post._id));
+            }}
+          >
+            <DeleteIcon fontSize="small" />
+          </Button>
+        </div>
+      ) : null}
+
+      {/* <div className={classes.details}>
         <Typography variant="body2" color="textSecondary">
           {post.age} anos
         </Typography>
@@ -88,8 +104,8 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2" color="textSecondary">
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
-      </div>
-      <CardContent style={{ display: "flex", justifyContent: "center" }}>
+      </div> */}
+      {/* <CardContent style={{ display: "flex", justifyContent: "center" }}>
         <Typography className={classes.title} variant="h5" gutterBottom>
           {post.name}
         </Typography>
@@ -119,7 +135,7 @@ const Post = ({ post, setCurrentId }) => {
             Excluir
           </Button>
         ) : null}
-      </CardActions>
+      </CardActions> */}
       {open ? (
         <DetailsModal
           open={open}

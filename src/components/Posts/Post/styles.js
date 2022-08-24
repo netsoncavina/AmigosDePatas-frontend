@@ -30,13 +30,19 @@ export default makeStyles({
   },
   overlay2: {
     position: "absolute",
-    top: "250px",
+    bottom: "20px",
     left: "20px",
     color: "white",
   },
   overlay3: {
     position: "absolute",
     top: "20px",
+    right: "7px",
+    color: "white",
+  },
+  overlay4: {
+    position: "absolute",
+    bottom: "18px",
     right: "7px",
     color: "white",
   },
