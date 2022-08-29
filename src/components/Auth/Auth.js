@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Paper, Grid, Typography, Container } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useHistory } from "react-router-dom";
@@ -23,14 +24,22 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState(initialState);
+  const [showAlert, setShowAlert] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isSignUp) {
       dispatch(signup(formData, history));
+      setShowAlert(true);
+      setTimeout(() => {
+        setIsSignUp(false);
+        setShowAlert(false);
+      }, "1000");
     } else {
       dispatch(signin(formData, history));
+
+      history.push("/");
     }
   };
   const handleChange = (e) => {
@@ -116,6 +125,16 @@ const Auth = () => {
               />
             )}
           </Grid>
+          <Alert
+            style={{
+              marginTop: "10px",
+              display: showAlert ? "" : "none",
+            }}
+            variant="filled"
+          >
+            Cadastro realizado com sucesso!
+          </Alert>
+
           <Button
             type="submit"
             fullWidth
@@ -132,7 +151,6 @@ const Auth = () => {
               onFailure={googleFailure}
             />
           </div>
-
           <Grid container justifyContent="center">
             <Grid item>
               <Button onClick={switchMode} style={{ textTransform: "none" }}>
