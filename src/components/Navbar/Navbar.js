@@ -46,7 +46,12 @@ const Navbar = () => {
           className={classes.heading}
           align="center"
         >
-          <img className={classes.image} src={logo} alt="logo" height={100} />
+          <img
+            className={classes.image}
+            src={logo}
+            alt="logo Amigos de Patas"
+            height={100}
+          />
         </Typography>
         <Toolbar className={classes.toolbar}>
           {user ? (
@@ -64,6 +69,7 @@ const Navbar = () => {
                 </Typography>
                 <Button
                   variant="contained"
+                  alt="Botão sair"
                   className={classes.logout}
                   style={{
                     backgroundColor: "#FF5757",
@@ -80,6 +86,7 @@ const Navbar = () => {
             <Button
               component={Link}
               to="/auth"
+              alt="Botão entrar"
               variant="contained"
               onClick={login}
               style={{
