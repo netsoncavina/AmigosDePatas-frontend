@@ -81,6 +81,7 @@ const Home = () => {
                 name="search"
                 variant="outlined"
                 label="Pesquisar"
+                id="Campo de pesquisa"
                 fullWidth
                 value={search}
                 onKeyPress={handleKeyPress}
@@ -93,6 +94,7 @@ const Home = () => {
                 onAdd={handleAdd}
                 onDelete={handleDelete}
                 label="Pesquisar por Tags"
+                id="Campo de pesquisa por tags"
                 variant="outlined"
               />
               <Button
