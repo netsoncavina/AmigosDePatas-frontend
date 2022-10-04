@@ -46,6 +46,9 @@ export default makeStyles((theme) => ({
     backgroundColor: deepPurple[500],
     width: "45px",
     height: "45px",
+    borderWidth: "2px",
+    borderStyle: "solid",
+    borderColor: "black",
   },
   [theme.breakpoints.down("sm")]: {
     brandContainer: {
