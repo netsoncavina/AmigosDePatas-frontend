@@ -38,7 +38,7 @@ const DetailsModal = ({
           image={selectedFile}
           title={name}
         />
-        <CardContent>
+        {/* <CardContent>
           <div className={classes.info}>
             <Typography variant="h5" gutterBottom>
               {name}
@@ -64,6 +64,33 @@ const DetailsModal = ({
             </Typography>
           </div>
 
+          <Typography
+            className={classes.description}
+            variant="body1"
+            gutterBottom
+          >
+            {description}
+          </Typography>
+        </CardContent> */}
+        <CardContent className={classes.cardContent}>
+          <div className={classes.info}>
+            <Typography variant="h5" gutterBottom>
+              {name}, {age} {age > 1 ? "anos" : "ano"}
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              {phoneNumber ? (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Phone fontSize="small" />
+                  {phoneNumber}
+                </div>
+              ) : null}
+            </Typography>
+          </div>
+          <Typography variant="body2" gutterBottom>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {localization}
+            </div>
+          </Typography>
           <Typography
             className={classes.description}
             variant="body1"

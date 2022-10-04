@@ -1,12 +1,28 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles({
+export default makeStyles((theme) => ({
   media: {
+    // position: "absolute",
     height: "100%",
     width: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     backgroundBlendMode: "darken",
     backgroundSize: "cover",
+  },
+  cardContent: {
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+    right: "0",
+    display: "flex",
+    flexDirection: "column",
+    // alignItems: "flex-start",
+    // justifyContent: "flex-end",
+    width: "92%",
+    color: "white",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundBlendMode: "darken",
+    borderRadius: "20px 20px 0 0",
   },
   card: {
     position: "absolute",
@@ -19,6 +35,10 @@ export default makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     borderRadius: "15px",
+    [theme.breakpoints.down("xs")]: {
+      width: 300,
+      height: 300,
+    },
   },
   info: {
     display: "flex",
@@ -28,4 +48,4 @@ export default makeStyles({
   description: {
     marginTop: "1rem",
   },
-});
+}));
