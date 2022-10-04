@@ -75,6 +75,7 @@ const Navbar = () => {
                     backgroundColor: "#FF5757",
                     borderRadius: "50px",
                     textTransform: "none",
+                    color: "white",
                   }}
                   onClick={logout}
                 >
