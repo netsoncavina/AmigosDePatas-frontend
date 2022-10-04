@@ -86,6 +86,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Cuidador"
           size="small"
+          id="Campo cuidador"
           fullWidth
           value={postData.creator}
           onChange={(e) =>
@@ -97,6 +98,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Nome do pet "
           size="small"
+          id="Campo nome do pet"
           fullWidth
           value={postData.name}
           onChange={(e) => setPostData({ ...postData, name: e.target.value })}
@@ -106,6 +108,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Raça"
           size="small"
+          id="Campo raça do pet"
           fullWidth
           value={postData.race}
           onChange={(e) => setPostData({ ...postData, race: e.target.value })}
@@ -115,6 +118,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Idade"
           size="small"
+          id="Campo idade do pet"
           fullWidth
           value={postData.age}
           onChange={(e) => setPostData({ ...postData, age: e.target.value })}
@@ -124,6 +128,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Contato"
           size="small"
+          id="Campo numero para contato"
           fullWidth
           value={postData.phoneNumber}
           onChange={(e) =>
@@ -135,6 +140,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Localização"
           size="small"
+          id="Campo localização"
           fullWidth
           value={postData.localization}
           onChange={(e) =>
@@ -145,6 +151,7 @@ const Form = ({ currentId, setCurrentId }) => {
           name="description"
           variant="outlined"
           label="Descrição"
+          id="Campo descrição"
           multiline
           maxRows={Infinity}
           fullWidth
@@ -158,6 +165,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Tags"
           size="small"
+          id="Campo tags"
           fullWidth
           value={postData.tags}
           onChange={(e) =>
