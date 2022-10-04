@@ -72,6 +72,7 @@ const Post = ({ post, setCurrentId }) => {
               setCurrentId(post._id);
             }}
           >
+            <h6 style={{ display: "hidden", fontSize: "0px" }}>Editar</h6>
             <EditIcon fontSize="medium" />
           </Button>
         </div>
@@ -87,6 +88,7 @@ const Post = ({ post, setCurrentId }) => {
               dispatch(deletePost(post._id));
             }}
           >
+            <h6 style={{ display: "hidden", fontSize: "0px" }}>Excluir</h6>
             <DeleteIcon fontSize="small" />
           </Button>
         </div>
