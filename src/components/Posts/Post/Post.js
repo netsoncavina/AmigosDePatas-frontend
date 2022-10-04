@@ -21,22 +21,6 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
-  const Likes = () => {
-    if (post.likes.length > 0) {
-      return (
-        <>
-          <ThumbUpAltIcon fontSize="small" />
-          {post.likes.length}
-        </>
-      );
-    }
-    return (
-      <>
-        <ThumbUpAltOutlined fontSize="small" />
-      </>
-    );
-  };
-
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -93,51 +77,6 @@ const Post = ({ post, setCurrentId }) => {
           </Button>
         </div>
       ) : null}
-
-      {/* <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary">
-          {post.age} anos
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
-          {post.race}
-        </Typography>
-      </div>
-      <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary">
-          {post.tags.map((tag) => `#${tag} `)}
-        </Typography>
-      </div> */}
-      {/* <CardContent style={{ display: "flex", justifyContent: "center" }}>
-        <Typography className={classes.title} variant="h5" gutterBottom>
-          {post.name}
-        </Typography>
-      </CardContent>
-      <CardActions className={classes.cardActions}>
-        <Button
-          size="small"
-          color="primary"
-          disabled={!user?.result}
-          onClick={() => {
-            dispatch(likePost(post._id));
-          }}
-        >
-          <Likes />
-        </Button>
-        {user?.result?._id === post.owner ||
-        user?.result?.email === post.owner ||
-        user?.result?.sub === post.owner ? (
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => {
-              dispatch(deletePost(post._id));
-            }}
-          >
-            <DeleteIcon fontSize="small" />
-            Excluir
-          </Button>
-        ) : null}
-      </CardActions> */}
       {open ? (
         <DetailsModal
           open={open}
