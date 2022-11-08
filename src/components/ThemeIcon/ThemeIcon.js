@@ -1,7 +1,7 @@
 import React from "react";
 import useStyles from "./styles";
 
-const ThemeIcon = ({ theme, active }) => {
+const ThemeIcon = ({ theme, active, onClick }) => {
   const classes = useStyles();
   const path =
     theme === "light" ? (
@@ -17,6 +17,7 @@ const ThemeIcon = ({ theme, active }) => {
       viewBox="0 0 24 24"
       width="24"
       fill={active ? "#38B6FF" : "#0202"}
+      onClick={onClick}
     >
       <rect fill="none" height="24" width="24" />
       {path}
