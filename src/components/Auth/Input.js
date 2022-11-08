@@ -34,7 +34,19 @@ const Input = ({
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton onClick={handleShowPassword}>
-                      {type === "password" ? <Visibility /> : <VisibilityOff />}
+                      {type === "password" ? (
+                        <Visibility
+                          style={{
+                            color: theme === "dark" ? "#fff" : "#000",
+                          }}
+                        />
+                      ) : (
+                        <VisibilityOff
+                          style={{
+                            color: theme === "dark" ? "#fff" : "#000",
+                          }}
+                        />
+                      )}
                     </IconButton>
                   </InputAdornment>
                 ),

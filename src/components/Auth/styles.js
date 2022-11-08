@@ -4,6 +4,8 @@ export default makeStyles((theme) => ({
   container: {
     display: "flex",
     alignItems: "flex-end",
+    transition: "all 0.5s ease",
+
     // marginLeft: "65%",
     [theme.breakpoints.down("xs")]: {
       justifyContent: "center",
@@ -37,13 +39,16 @@ export default makeStyles((theme) => ({
   form: {
     width: "100%",
     marginTop: theme.spacing(3),
+    transition: "all 0.5s ease",
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    transition: "all 0.5s ease",
   },
   googleButton: {
     marginBottom: theme.spacing(2),
     justifyContent: "center",
     alignItems: "center",
+    display: "flex",
   },
 }));

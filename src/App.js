@@ -34,7 +34,9 @@ const App = () => {
             <Route
               path="/auth"
               exact
-              component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
+              component={() =>
+                !user ? <Auth theme={theme} /> : <Redirect to="/posts" />
+              }
             />
           </Switch>
         </Container>

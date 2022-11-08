@@ -19,7 +19,7 @@ const initialState = {
   confirmPassword: "",
 };
 
-const Auth = () => {
+const Auth = ({ theme }) => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
@@ -69,8 +69,6 @@ const Auth = () => {
     console.log(error);
     console.log("Google login failed");
   };
-
-  const theme = localStorage.getItem("theme");
 
   return (
     <Container component="main" maxWidth="xs" className={classes.container}>
@@ -166,7 +164,10 @@ const Auth = () => {
             type="submit"
             fullWidth
             variant="contained"
-            style={{ backgroundColor: "#242424", color: "#fff" }}
+            style={{
+              backgroundColor: theme === "dark" ? "#242424" : "#38B6FF",
+              color: "#fff",
+            }}
             className={classes.submit}
           >
             {isSignUp ? "Cadastrar" : "Entrar"}
@@ -180,6 +181,7 @@ const Auth = () => {
               shape="circle"
             />
           </div>
+
           <Grid container justifyContent="center">
             <Grid item>
               <Button
