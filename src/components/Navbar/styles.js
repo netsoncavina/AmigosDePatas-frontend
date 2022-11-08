@@ -21,6 +21,7 @@ export default makeStyles((theme) => ({
   },
   image: {
     // marginLeft: "15px",
+    color: "rgba(0,183,255, 1)",
   },
   toolbar: {
     display: "flex",

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, Avatar, Button } from "@material-ui/core";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import ThemeIcon from "../ThemeIcon/ThemeIcon";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import useStyles from "./styles";
-
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import logo from "../../images/Logo.png";
+import logoDark from "../../images/LogoDark.png";
 
 const Navbar = () => {
   const classes = useStyles();
@@ -14,6 +15,9 @@ const Navbar = () => {
   const history = useHistory();
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     setUser(null);
@@ -37,6 +41,11 @@ const Navbar = () => {
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
 
+  const toggleDarkMode = (theme) => {
+    theme === "dark" ? setDarkMode(true) : setDarkMode(false);
+    localStorage.setItem("theme", theme);
+  };
+
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
@@ -48,11 +57,21 @@ const Navbar = () => {
         >
           <img
             className={classes.image}
-            src={logo}
+            src={darkMode ? logoDark : logo}
             alt="logo Amigos de Patas"
             height={100}
           />
         </Typography>
+        <ThemeIcon
+          theme="light"
+          active={darkMode ? false : true}
+          onClick={() => toggleDarkMode("light")}
+        />
+        <ThemeIcon
+          theme="dark"
+          active={darkMode ? true : false}
+          onClick={() => toggleDarkMode("dark")}
+        />
         <Toolbar className={classes.toolbar}>
           {user ? (
             <>
@@ -91,7 +110,7 @@ const Navbar = () => {
               variant="contained"
               onClick={login}
               style={{
-                backgroundColor: "#38B6FF",
+                backgroundColor: darkMode ? "#242424" : "#38B6FF",
                 borderRadius: "50px",
                 textTransform: "none",
               }}
