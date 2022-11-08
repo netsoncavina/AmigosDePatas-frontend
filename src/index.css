@@ -4,3 +4,10 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
+.dark {
+  background-color: #000000;
+  background-image: url("images/BackgroundDark.jpeg");
+  background-attachment: fixed;
+  background-size: cover;
+}
