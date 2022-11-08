@@ -11,6 +11,7 @@ const Input = ({
   autoFocus,
   handleShowPassword,
   half,
+  theme,
 }) => {
   return (
     <Grid item xs={12} sm={half ? 6 : 12}>
@@ -23,6 +24,10 @@ const Input = ({
         fullWidth
         type={type}
         autoFocus={autoFocus}
+        style={{
+          backgroundColor: theme === "dark" ? "#242424" : "#fff",
+          color: theme === "dark" ? "#fff" : "#000",
+        }}
         InputProps={
           name === "password"
             ? {
@@ -36,6 +41,11 @@ const Input = ({
               }
             : null
         }
+        InputLabelProps={{
+          style: {
+            color: theme === "dark" ? "#fff" : "#000",
+          },
+        }}
       />
     </Grid>
   );

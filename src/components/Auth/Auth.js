@@ -70,11 +70,32 @@ const Auth = () => {
     console.log("Google login failed");
   };
 
+  const theme = localStorage.getItem("theme");
+
   return (
     <Container component="main" maxWidth="xs" className={classes.container}>
-      <Paper className={classes.paper} elevation={3}>
-        <img src={icon} className={classes.icon} alt="icon" />
-        <Typography variant="h6" className={classes.title}>
+      <Paper
+        className={classes.paper}
+        elevation={3}
+        style={{
+          backgroundColor: theme === "dark" ? "#242424" : "#fff",
+        }}
+      >
+        <img
+          src={icon}
+          className={classes.icon}
+          alt="icon"
+          style={{
+            filter: theme === "dark" ? "invert(1)" : "invert(0)",
+          }}
+        />
+        <Typography
+          variant="h6"
+          className={classes.title}
+          style={{
+            color: theme === "dark" ? "#fff" : "#000",
+          }}
+        >
           {isSignUp
             ? "Se cadastre para conhecer seu novo amigo de patas!"
             : "Entre para conhecer seu novo amigo de patas!"}
@@ -89,17 +110,20 @@ const Auth = () => {
                   handleChange={handleChange}
                   autoFocus
                   half
+                  theme={theme}
                 />
                 <Input
                   name="lastName"
                   label="Sobrenome"
                   handleChange={handleChange}
                   half
+                  theme={theme}
                 />
                 <Input
                   name="phoneNumber"
                   label="Telefone"
                   handleChange={handleChange}
+                  theme={theme}
                 />
               </>
             )}
@@ -108,6 +132,7 @@ const Auth = () => {
               label="E-mail"
               handleChange={handleChange}
               type="email"
+              theme={theme}
             />
             <Input
               name="password"
@@ -115,6 +140,7 @@ const Auth = () => {
               handleChange={handleChange}
               type={showPassword ? "text" : "password"}
               handleShowPassword={handleShowPassword}
+              theme={theme}
             />
             {isSignUp && (
               <Input
@@ -122,6 +148,7 @@ const Auth = () => {
                 label="Confirmar Senha"
                 handleChange={handleChange}
                 type="password"
+                theme={theme}
               />
             )}
           </Grid>
@@ -139,7 +166,7 @@ const Auth = () => {
             type="submit"
             fullWidth
             variant="contained"
-            style={{ backgroundColor: "#242424 ", color: "#fff" }}
+            style={{ backgroundColor: "#242424", color: "#fff" }}
             className={classes.submit}
           >
             {isSignUp ? "Cadastrar" : "Entrar"}
@@ -149,11 +176,19 @@ const Auth = () => {
               className={classes.googleButton}
               onSuccess={googleSuccess}
               onFailure={googleFailure}
+              theme={theme === "dark" ? "filled_black" : "outline"}
+              shape="circle"
             />
           </div>
           <Grid container justifyContent="center">
             <Grid item>
-              <Button onClick={switchMode} style={{ textTransform: "none" }}>
+              <Button
+                onClick={switchMode}
+                style={{
+                  textTransform: "none",
+                  color: theme === "dark" ? "#fff" : "#000",
+                }}
+              >
                 {isSignUp ? "Já possui uma conta?" : "Não possui uma conta?"}
               </Button>
             </Grid>
