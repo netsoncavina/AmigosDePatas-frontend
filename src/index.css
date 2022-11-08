@@ -3,6 +3,8 @@ body {
   background-image: url("images/Background.jpg");
   background-attachment: fixed;
   background-size: cover;
+  -webkit-transition: background-image 0.5s ease-in-out;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .dark {
@@ -10,4 +12,6 @@ body {
   background-image: url("images/BackgroundDark.jpeg");
   background-attachment: fixed;
   background-size: cover;
+  -webkit-transition: background-image 0.5s ease-in-out;
+  transition: background-image 0.5s ease-in-out;
 }
