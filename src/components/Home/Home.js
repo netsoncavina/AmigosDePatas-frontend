@@ -21,7 +21,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-const Home = () => {
+const Home = ({ theme }) => {
   const [currentId, setCurrentId] = useState(null);
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
@@ -58,6 +58,8 @@ const Home = () => {
     }
   };
 
+  // const theme = localStorage.getItem("theme");
+
   return (
     <Grow in>
       <Container maxWidth="lg">
@@ -76,6 +78,10 @@ const Home = () => {
               className={classes.appBarSearch}
               position="static"
               color="inherit"
+              style={{
+                backgroundColor: theme === "dark" ? "#242424" : "#fff",
+                transition: "all 0.5s ease",
+              }}
             >
               <TextField
                 name="search"
@@ -86,9 +92,17 @@ const Home = () => {
                 value={search}
                 onKeyPress={handleKeyPress}
                 onChange={(e) => setSearch(e.target.value)}
+                style={{
+                  backgroundColor: "#fff",
+                  borderRadius: "10px",
+                }}
               />
               <ChipInput
-                style={{ margin: "10px 0" }}
+                style={{
+                  margin: "10px 0",
+                  backgroundColor: "#fff",
+                  borderRadius: "10px",
+                }}
                 value={tags}
                 newChipKeys={[" "]}
                 onAdd={handleAdd}
@@ -102,13 +116,29 @@ const Home = () => {
                 className={classes.searchButton}
                 variant="contained"
                 color="primary"
+                style={{
+                  backgroundColor: theme === "dark" ? "#242424" : "#38B6FF",
+                  // borderRadius: "50px",
+                  textTransform: "none",
+                  transition: "all 0.5s ease",
+                }}
               >
                 Pesquisar
               </Button>
             </AppBar>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
-            <Paper className={classes.pagination} elevation={6}>
-              <Paginate page={page} />
+            <Form
+              currentId={currentId}
+              setCurrentId={setCurrentId}
+              theme={theme}
+            />
+            <Paper
+              className={classes.pagination}
+              elevation={6}
+              style={{
+                backgroundColor: theme === "dark" ? "#242424" : "#fff",
+              }}
+            >
+              <Paginate page={page} theme={theme} />
             </Paper>
           </Grid>
         </Grid>

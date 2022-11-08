@@ -5,7 +5,7 @@ import FileBase from "react-file-base64";
 import useStyles from "./styles";
 import { createPost, updatePost } from "../../actions/posts";
 
-const Form = ({ currentId, setCurrentId }) => {
+const Form = ({ currentId, setCurrentId, theme }) => {
   const owner = JSON.parse(localStorage.getItem("profile"));
   const phoneNumber = owner?.result.phoneNumber || "";
   const name = owner?.result.name || "";
@@ -62,8 +62,19 @@ const Form = ({ currentId, setCurrentId }) => {
 
   if (!owner?.result?.email) {
     return (
-      <Paper className={classes.paper}>
-        <Typography variant="h6" align="center">
+      <Paper
+        className={classes.paper}
+        style={{
+          backgroundColor: theme === "dark" ? "#242424" : "#f5f5f5",
+        }}
+      >
+        <Typography
+          variant="h6"
+          align="center"
+          style={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+        >
           Você precisa estar logado para postar
         </Typography>
       </Paper>
@@ -71,14 +82,24 @@ const Form = ({ currentId, setCurrentId }) => {
   }
 
   return (
-    <Paper className={classes.paper}>
+    <Paper
+      className={classes.paper}
+      style={{
+        backgroundColor: theme === "dark" ? "#242424" : "#f5f5f5",
+      }}
+    >
       <form
         autoComplete="off"
         noValidate
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">
+        <Typography
+          variant="h6"
+          style={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+        >
           {currentId ? `Editando post` : "Criando Post"}
         </Typography>
         <TextField
@@ -92,6 +113,14 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, creator: e.target.value })
           }
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <TextField
           name="name"
@@ -102,6 +131,14 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           value={postData.name}
           onChange={(e) => setPostData({ ...postData, name: e.target.value })}
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <TextField
           name="race"
@@ -112,6 +149,14 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           value={postData.race}
           onChange={(e) => setPostData({ ...postData, race: e.target.value })}
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <TextField
           name="age"
@@ -122,6 +167,14 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           value={postData.age}
           onChange={(e) => setPostData({ ...postData, age: e.target.value })}
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <TextField
           name="phoneNumber"
@@ -134,6 +187,14 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, phoneNumber: e.target.value })
           }
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <TextField
           name="localization"
@@ -146,6 +207,14 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, localization: e.target.value })
           }
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <TextField
           name="description"
@@ -159,6 +228,14 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, description: e.target.value })
           }
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <TextField
           name="tags"
@@ -171,6 +248,14 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, tags: e.target.value.split(",") })
           }
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
+          labelStyle={{
+            color: theme === "dark" ? "#f5f5f5" : "#242424",
+          }}
         />
         <div className={classes.fileInput}>
           <FileBase
@@ -188,6 +273,9 @@ const Form = ({ currentId, setCurrentId }) => {
           size="large"
           type="submit"
           fullWidth
+          style={{
+            backgroundColor: theme === "dark" ? "#242424" : "primary",
+          }}
         >
           {currentId ? `Atualizar` : "Postar"}
         </Button>

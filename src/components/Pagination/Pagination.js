@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../actions/posts";
 import useStyles from "./styles";
 
-const Paginate = ({ page }) => {
+const Paginate = ({ page, theme }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { numberOfPages } = useSelector((state) => state.posts);
@@ -26,8 +26,14 @@ const Paginate = ({ page }) => {
           {...item}
           component={Link}
           to={`/posts?page=${item.page}`}
+          style={{
+            color: theme === "light" ? "#000" : "#fff",
+          }}
         />
       )}
+      style={{
+        backgroundColor: theme === "dark" ? "#242424" : "#fff",
+      }}
     />
   );
 };

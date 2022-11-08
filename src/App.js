@@ -29,7 +29,7 @@ const App = () => {
           <Navbar themeChanger={setTheme} />
           <Switch>
             <Route path="/" exact component={() => <Redirect to="/posts" />} />
-            <Route path="/posts" exact component={Home} />
+            <Route path="/posts" exact component={() => <Home theme={theme}/>} />
             <Route path="/posts/search" exact component={Home} />
             <Route
               path="/auth"

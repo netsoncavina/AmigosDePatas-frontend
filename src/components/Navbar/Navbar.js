@@ -9,7 +9,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import logo from "../../images/Logo.png";
 import logoDark from "../../images/LogoDark.png";
 
-const Navbar = () => {
+const Navbar = ({ themeChanger }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -44,6 +44,7 @@ const Navbar = () => {
   const toggleDarkMode = (theme) => {
     theme === "dark" ? setDarkMode(true) : setDarkMode(false);
     localStorage.setItem("theme", theme);
+    themeChanger(theme);
   };
 
   return (
@@ -113,6 +114,7 @@ const Navbar = () => {
                 backgroundColor: darkMode ? "#242424" : "#38B6FF",
                 borderRadius: "50px",
                 textTransform: "none",
+                transition: "all 0.5s ease",
               }}
             >
               <div
