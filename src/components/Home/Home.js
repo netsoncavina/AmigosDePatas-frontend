@@ -117,7 +117,7 @@ const Home = ({ theme }) => {
                 variant="contained"
                 color="primary"
                 style={{
-                  backgroundColor: theme === "dark" ? "#242424" : "#38B6FF",
+                  backgroundColor: theme === "dark" ? "#383636" : "#38B6FF",
                   // borderRadius: "50px",
                   textTransform: "none",
                   transition: "all 0.5s ease",

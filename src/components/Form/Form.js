@@ -274,7 +274,7 @@ const Form = ({ currentId, setCurrentId, theme }) => {
           type="submit"
           fullWidth
           style={{
-            backgroundColor: theme === "dark" ? "#242424" : "primary",
+            backgroundColor: theme === "dark" ? "#383636" : "primary",
           }}
         >
           {currentId ? `Atualizar` : "Postar"}
