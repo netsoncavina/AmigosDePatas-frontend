@@ -53,6 +53,8 @@ const Auth = ({ theme }) => {
     setShowPassword(false);
   };
 
+  const showModal = () => {};
+
   const googleSuccess = async (res) => {
     console.log(res);
     const result = jwt_decode(res?.credential);
@@ -174,9 +176,10 @@ const Auth = ({ theme }) => {
           </Button>
           <div className={classes.googleButton}>
             <GoogleLogin
+              disabled={true}
               className={classes.googleButton}
-              onSuccess={googleSuccess}
-              onFailure={googleFailure}
+              // onSuccess={googleSuccess}
+              // onFailure={googleFailure}
               theme={theme === "dark" ? "filled_black" : "outline"}
               shape="circle"
             />
@@ -185,7 +188,7 @@ const Auth = ({ theme }) => {
           <Grid container justifyContent="center">
             <Grid item>
               <Button
-                onClick={switchMode}
+                onClick={showModal}
                 style={{
                   textTransform: "none",
                   color: theme === "dark" ? "#fff" : "#000",
