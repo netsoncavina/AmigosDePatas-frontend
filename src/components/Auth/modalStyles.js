@@ -53,6 +53,9 @@ export default makeStyles((theme) => ({
     height: "100%",
     color: "white",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: "10px",
+    },
   },
   //   text: {
   //     display: "flex",
