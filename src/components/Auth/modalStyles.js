@@ -54,7 +54,7 @@ export default makeStyles((theme) => ({
     color: "white",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     [theme.breakpoints.down("xs")]: {
-      marginLeft: "10px",
+      paddingLeft: "10px",
     },
   },
   //   text: {
