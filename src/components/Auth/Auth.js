@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import icon from "../../images/icon.png";
 import Input from "./Input";
+import Modal from "./Modal";
 import useStyles from "./styles";
 import { signin, signup } from "../../actions/auth";
 
@@ -25,6 +26,9 @@ const Auth = ({ theme }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState(initialState);
   const [showAlert, setShowAlert] = useState(false);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const handleSubmit = (e) => {
@@ -188,7 +192,7 @@ const Auth = ({ theme }) => {
           <Grid container justifyContent="center">
             <Grid item>
               <Button
-                onClick={showModal}
+                onClick={handleOpen}
                 style={{
                   textTransform: "none",
                   color: theme === "dark" ? "#fff" : "#000",
@@ -196,6 +200,17 @@ const Auth = ({ theme }) => {
               >
                 {isSignUp ? "Já possui uma conta?" : "Não possui uma conta?"}
               </Button>
+              {open && (
+                <Modal
+                  open={open}
+                  handleClose={handleClose}
+                  message="Em breve você poderá se cadastrar!"
+                  imagePath={
+                    "https://www.multilingualizer.com/assets/Developer-Dog.jpg"
+                  }
+                  text="Em breve você poderá conhecer seu novo amigo de patas!"
+                />
+              )}
             </Grid>
           </Grid>
         </form>
