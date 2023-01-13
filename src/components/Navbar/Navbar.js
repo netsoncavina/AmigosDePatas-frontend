@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, Avatar, Button } from "@material-ui/core";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import ThemeIcon from "../ThemeIcon/ThemeIcon";
 import { useDispatch } from "react-redux";
@@ -47,6 +49,10 @@ const Navbar = ({ themeChanger }) => {
     themeChanger(theme);
   };
 
+  const goProfile = () => {
+    history.push("/profile");
+  };
+
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
@@ -81,6 +87,7 @@ const Navbar = ({ themeChanger }) => {
                   className={classes.avatar}
                   alt={user?.result.name}
                   src={user?.result.picture}
+                  onClick={goProfile}
                 >
                   {user?.result.name.charAt(0)}
                 </Avatar>
