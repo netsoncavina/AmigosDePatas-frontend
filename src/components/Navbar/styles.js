@@ -50,6 +50,7 @@ export default makeStyles((theme) => ({
     borderWidth: "2px",
     borderStyle: "solid",
     borderColor: "black",
+    cursor: "pointer",
   },
   [theme.breakpoints.down("sm")]: {
     brandContainer: {
