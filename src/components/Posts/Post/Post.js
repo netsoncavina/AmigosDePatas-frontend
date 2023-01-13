@@ -69,7 +69,7 @@ const Post = ({ post, setCurrentId }) => {
             style={{ color: "white" }}
             size="small"
             onClick={() => {
-              dispatch(deletePost(post._id));
+              // dispatch(deletePost(post._id));
             }}
           >
             <h6 style={{ display: "hidden", fontSize: "0px" }}>Excluir</h6>
