@@ -38,40 +38,6 @@ const DetailsModal = ({
           image={selectedFile}
           title={name}
         />
-        {/* <CardContent>
-          <div className={classes.info}>
-            <Typography variant="h5" gutterBottom>
-              {name}
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <LocationOn fontSize="small" />
-                {localization}
-              </div>
-            </Typography>
-          </div>
-          <div className={classes.info}>
-            <Typography variant="body2" gutterBottom>
-              {age} {age > 1 ? "anos" : "ano"}
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              {phoneNumber ? (
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <Phone fontSize="small" />
-                  {phoneNumber}
-                </div>
-              ) : null}
-            </Typography>
-          </div>
-
-          <Typography
-            className={classes.description}
-            variant="body1"
-            gutterBottom
-          >
-            {description}
-          </Typography>
-        </CardContent> */}
         <CardContent className={classes.cardContent}>
           <div className={classes.info}>
             <Typography variant="h5" gutterBottom>
