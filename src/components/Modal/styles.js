@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   media: {
-    // position: "absolute",
     height: "100%",
     width: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -16,8 +15,6 @@ export default makeStyles((theme) => ({
     right: "0",
     display: "flex",
     flexDirection: "column",
-    // alignItems: "flex-start",
-    // justifyContent: "flex-end",
     width: "92%",
     color: "white",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
