@@ -15,7 +15,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import moment from "moment";
 import useStyles from "./styles";
 import { deletePost, likePost } from "../../../actions/posts";
-import DetailsModal from "../../Modal/Modal";
+import { DetailsModal, DeleteModal } from "../../Modal/Modal";
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
@@ -93,6 +93,13 @@ const Post = ({ post, setCurrentId }) => {
           race={post.race}
           phoneNumber={post.phoneNumber}
           description={post.description}
+        />
+      ) : null}
+      {openDeleteModal ? (
+        <DeleteModal
+          open={openDeleteModal}
+          handleClose={handleCloseDeleteModal}
+          id={post._id}
         />
       ) : null}
     </Card>
