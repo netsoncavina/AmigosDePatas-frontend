@@ -24,6 +24,9 @@ const Post = ({ post, setCurrentId }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const handleOpenDeleteModal = () => setOpenDeleteModal(true);
+  const handleCloseDeleteModal = () => setOpenDeleteModal(false);
 
   return (
     <Card className={classes.card} elevation={10}>
@@ -69,7 +72,7 @@ const Post = ({ post, setCurrentId }) => {
             style={{ color: "white" }}
             size="small"
             onClick={() => {
-              // dispatch(deletePost(post._id));
+              dispatch(deletePost(post._id));
             }}
           >
             <h6 style={{ display: "hidden", fontSize: "0px" }}>Excluir</h6>
