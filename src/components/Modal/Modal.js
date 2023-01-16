@@ -12,7 +12,7 @@ import {
 import { Phone, LocationOn } from "@material-ui/icons";
 import useStyles from "./styles";
 
-const DetailsModal = ({
+export const DetailsModal = ({
   open,
   handleClose,
   selectedFile,
@@ -70,4 +70,43 @@ const DetailsModal = ({
   );
 };
 
-export default DetailsModal;
+export const DeleteModal = ({ open, handleClose, handleDelete }) => {
+  const classes = useStyles();
+  return (
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Card className={classes.card} elevation={10}>
+        <CardContent className={classes.cardContent}>
+          <Typography variant="h5" gutterBottom>
+            Tem certeza que deseja excluir este post?
+          </Typography>
+          <Typography variant="body2" gutterBottom>
+            Esta ação não poderá ser desfeita.
+          </Typography>
+        </CardContent>
+        <CardActions className={classes.cardActions}>
+          <Button
+            size="small"
+            color="secondary"
+            onClick={handleDelete}
+            variant="contained"
+          >
+            Excluir
+          </Button>
+          <Button
+            size="small"
+            color="primary"
+            onClick={handleClose}
+            variant="contained"
+          >
+            Cancelar
+          </Button>
+        </CardActions>
+      </Card>
+    </Modal>
+  );
+};
