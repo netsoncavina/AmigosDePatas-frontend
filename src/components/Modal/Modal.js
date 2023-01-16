@@ -76,24 +76,27 @@ export const DeleteModal = ({ open, handleClose, handleDelete }) => {
     <Modal
       open={open}
       onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      // aria-labelledby="modal-modal-title"
+      // aria-describedby="modal-modal-description"
     >
-      <Card className={classes.card} elevation={10}>
-        <CardContent className={classes.cardContent}>
-          <Typography variant="h5" gutterBottom>
+      <Card className={classes.deleteCard} elevation={10}>
+        <CardContent>
+          <Typography variant="h5">
             Tem certeza que deseja excluir este post?
           </Typography>
-          <Typography variant="body2" gutterBottom>
+          <Typography variant="body2">
             Esta ação não poderá ser desfeita.
           </Typography>
         </CardContent>
-        <CardActions className={classes.cardActions}>
+        <CardActions className={classes.buttons}>
           <Button
             size="small"
             color="secondary"
             onClick={handleDelete}
             variant="contained"
+            style={{
+              backgroundColor: "#FF5757",
+            }}
           >
             Excluir
           </Button>
