@@ -5,6 +5,7 @@ import { Container } from "@material-ui/core";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
+import Profile from "./components/Profile/Profile";
 import "dotenv/config";
 import "./index.css";
 
@@ -29,13 +30,24 @@ const App = () => {
           <Navbar themeChanger={setTheme} />
           <Switch>
             <Route path="/" exact component={() => <Redirect to="/posts" />} />
-            <Route path="/posts" exact component={() => <Home theme={theme}/>} />
+            <Route
+              path="/posts"
+              exact
+              component={() => <Home theme={theme} />}
+            />
             <Route path="/posts/search" exact component={Home} />
             <Route
               path="/auth"
               exact
               component={() =>
                 !user ? <Auth theme={theme} /> : <Redirect to="/posts" />
+              }
+            />
+            <Route
+              path="/profile"
+              exact
+              component={() =>
+                user ? <Profile theme={theme} /> : <Redirect to="/auth" />
               }
             />
           </Switch>
