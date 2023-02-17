@@ -4,9 +4,14 @@ import { deepPurple } from "@material-ui/core/colors";
 export default makeStyles((theme) => ({
   header: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    color: "#fff",
+    marginTop: "20px",
+    marginBottom: "20px",
   },
   avatar: {
     color: theme.palette.getContrastText(deepPurple[500]),
