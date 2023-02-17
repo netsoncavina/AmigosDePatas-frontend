@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Avatar } from "@material-ui/core";
+import { Avatar, TextField, Button, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
 const Profile = () => {
