@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Avatar, TextField, Button, Typography } from "@material-ui/core";
+import { Avatar, TextField, Grid, Button, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
 const Profile = () => {
@@ -20,6 +20,22 @@ const Profile = () => {
           {user.result.name.charAt(0)}
         </Avatar>
       </div>
+      <form className={classes.form}>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            name="name"
+            variant="outlined"
+            label="Nome"
+            fullWidth
+            value={user.result.name}
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "10px",
+              // color: theme === "dark" ? "#f5f5f5" : "#242424",
+            }}
+          />
+        </Grid>
+      </form>
     </>
   );
 };
