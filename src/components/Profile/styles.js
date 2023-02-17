@@ -19,4 +19,11 @@ export default makeStyles((theme) => ({
     width: "168px",
     height: "168px",
   },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "20px",
+  },
 }));
