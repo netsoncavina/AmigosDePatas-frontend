@@ -26,4 +26,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     marginTop: "20px",
   },
+  textField: {
+    marginTop: "20px",
+  },
 }));
