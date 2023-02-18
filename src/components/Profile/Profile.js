@@ -31,7 +31,6 @@ const Profile = () => {
             style={{
               backgroundColor: "#fff",
               borderRadius: "10px",
-              // color: theme === "dark" ? "#f5f5f5" : "#242424",
             }}
           />
         </Grid>
