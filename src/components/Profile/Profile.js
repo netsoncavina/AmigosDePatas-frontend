@@ -26,6 +26,7 @@ const Profile = () => {
             name="name"
             variant="outlined"
             label="Nome"
+            className={classes.textField}
             fullWidth
             value={user.result.name}
             style={{
@@ -33,6 +34,43 @@ const Profile = () => {
               borderRadius: "10px",
             }}
           />
+          <TextField
+            name="email"
+            variant="outlined"
+            label="E-mail"
+            fullWidth
+            className={classes.textField}
+            value={user.result.email}
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "10px",
+            }}
+          />
+          <TextField
+            name="phoneNumber"
+            variant="outlined"
+            label="Telefone"
+            fullWidth
+            className={classes.textField}
+            value={user.result.phoneNumber}
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "10px",
+            }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.textField}
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "10px",
+              color: "#000",
+            }}
+          >
+            Atualizar
+          </Button>
         </Grid>
       </form>
     </>
