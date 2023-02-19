@@ -5,6 +5,7 @@ import useStyles from "./styles";
 const Profile = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const classes = useStyles();
+  const theme = "dark";
 
   return (
     <>
@@ -60,13 +61,13 @@ const Profile = () => {
           />
           <Button
             type="submit"
-            variant="contained"
             color="primary"
-            className={classes.textField}
+            className={classes.button}
+            variant="contained"
+            size="large"
+            fullWidth
             style={{
-              backgroundColor: "#fff",
-              borderRadius: "10px",
-              color: "#000",
+              backgroundColor: theme === "dark" ? "#383636" : "primary",
             }}
           >
             Atualizar
