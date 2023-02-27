@@ -28,3 +28,8 @@ export const deletePost = (id) => API.delete(`/posts/${id}`);
 
 export const signIn = (formData) => API.post("/users/signin", formData);
 export const signUp = (formData) => API.post("/users/signup", formData);
+
+export const updateUser = (id, updatedUser) =>
+  API.patch(`/users/${id}`, updatedUser);
+
+export const deleteUser = (id) => API.delete(`/users/${id}`);
